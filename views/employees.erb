@@ -1,0 +1,27 @@
+<h1>EMPLOYEES</h1>
+
+<h3>Here are all of your employees:</h3>
+
+<ul>
+  <% @employees.each() do |employee| %>
+  <li><%= employee.name %></li>
+  <% end %>
+</ul>
+
+<h3>Add employee:</h3>
+
+<form action="/employees" method="post">
+  <label for="name">Name:</label>
+  <input type="text" name="name" id="name">
+
+
+  <label for="gender">Gender:</label>
+  <input type="text" name="gender" id="gender">
+
+  <label for="age">Age:</label>
+  <input type="text" name="age" id="age">
+
+  <button type="submit" class="btn btn-primary">Add employee</button>
+</form>
+
+<h6><a href="/">Back Home</a></h6>
