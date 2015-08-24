@@ -1,4 +1,24 @@
 <h1>DIVISIONS</h1>
 
+<h3>Here are all of your divisions:</h3>
+
+<ul>
+  <% @divisions.each() do |division| %>
+  <li><%= division.name %></li>
+  <% end %>
+</ul>
+
+<h3>Add division:</h3>
+
+<form action="/divisions" method="post">
+  <div class="form-group">
+    <label for="name">Name:</label>
+    <input class="form-control" type="text" name="name" id="name">
+    <br>
+    <button type="submit" class="btn btn-primary">Add division</button>
+  </div>
+</form>
+
+
 
 <h6><a href="/">Back Home</a></h6>

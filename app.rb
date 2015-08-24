@@ -11,6 +11,15 @@ get("/") do
 end
 
 get("/divisions") do
+  @divisions = Division.all()
+  erb(:divisions)
+end
+
+post("/divisions") do
+  name = params.fetch("name")
+  new_division = Division.new({:name => name})
+  new_division.save()
+  @divisions = Division.all()
   erb(:divisions)
 end
 
