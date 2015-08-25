@@ -1,0 +1,18 @@
+<h1>Update employee information for <%= @employee.name() %></h1>
+
+<form action="/employees/<%= @employee.id() %>" method="post">
+  <input type="hidden" name="_method" value="patch">
+
+  <div class="form-group">
+    <label for="name">Update name</label>
+    <input class="form-control" type="text" name="name" id="name">
+
+    <label for="gender">Update gender</label>
+    <input class="form-control" type="text" name="gende" id="gender">
+
+    <label for="age">Update age</label>
+    <input class="form-control" type="text" name="age" id="age">
+  </div>
+
+  <button type="submit">Update</button>
+</form>

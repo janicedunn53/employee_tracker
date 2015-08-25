@@ -23,6 +23,19 @@ post("/divisions") do
   erb(:divisions)
 end
 
+get("/divisions/:id/edit") do
+  @division = Division.find(params.fetch("id").to_i())
+  erb(:division_edit)
+end
+
+patch("/divisions/:id") do
+  name = params.fetch("name")
+  @division = Division.find(params.fetch("id").to_i())
+  @division.update({:name => name})
+  @divisions = Division.all()
+  erb(:divisions)
+end
+
 get("/employees") do
   @employees = Employee.all()
   erb(:employees)
@@ -34,6 +47,21 @@ post("/employees") do
   age = params.fetch("age").to_i()
   new_employee = Employee.new({:name => name, :gender => gender, :age => age})
   new_employee.save()
+  @employees = Employee.all()
+  erb(:employees)
+end
+
+get("/employees/:id/edit") do
+  @employee = Employee.find(params.fetch("id").to_i())
+  erb(:employee_edit)
+end
+
+patch("/employees/:id") do
+  name = params.fetch("name")
+  gender = params.fetch("gender")
+  age = params.fetch("age").to_i()
+  @employee = Employee.find(params.fetch("id").to_i())
+  @employee.update({:name => name, :gender => gender, :age => age})
   @employees = Employee.all()
   erb(:employees)
 end
