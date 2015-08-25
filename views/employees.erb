@@ -5,7 +5,7 @@
 
   <ul>
     <% @employees.each() do |employee| %>
-      <li><%= employee.name %> <a href="/employees/<%= employee.id() %>/edit">Update this employee</a></li>
+      <li><%= employee.name %> <a href="/employees/<%= employee.id() %>/edit">View or update</a></li>
     <% end %>
   </ul>
 
@@ -27,12 +27,14 @@
     <label for="age">Age:</label>
     <input class="form-control" type="text" name="age" id="age">
     <br>
-  
+
+    <label for="division_id">Division:</label>
     <select id="division_id" name="division_id" type="text">
       <% @divisions.each() do |division| %>
         <option value="<%= division.id %>"><%= division.name() %></option>
       <% end %>
     </select>
+    <br>
 
     <button type="submit" class="btn btn-primary">Add employee</button>
   </div>

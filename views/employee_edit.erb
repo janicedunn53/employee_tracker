@@ -1,4 +1,15 @@
-<h1>Update employee information for <%= @employee.name() %></h1>
+<h1><%= @employee.name() %></h1>
+
+<h3>Here are the details of this employee:</h3>
+
+  <ul>
+    <li><%= @employee.gender %> </li>
+    <li><%= @employee.age %></li>
+    <li><% @employee.division_id %></li>
+  </ul>
+
+
+<h3>Update employee information for <%= @employee.name() %></h3>
 
 <form action="/employees/<%= @employee.id() %>" method="post">
   <input type="hidden" name="_method" value="patch">

@@ -50,10 +50,12 @@ end
 
 get("/employees") do
   @employees = Employee.all()
+  @divisions = Division.all()
   erb(:employees)
 end
 
 post("/employees") do
+  @divisions = Division.all()
   name = params.fetch("name")
   gender = params.fetch("gender")
   age = params.fetch("age").to_i()
