@@ -1,12 +1,17 @@
 <h1>DIVISIONS</h1>
 
-<h3>Here are all of your divisions:</h3>
+<% if @divisions.any?() %>
+  <h3>Here are all of your divisions:</h3>
 
-<ul>
-  <% @divisions.each() do |division| %>
-  <li><%= division.name %> <a href="/divisions/<%= division.id() %>/edit">Update this division</a></li>
-  <% end %>
-</ul>
+    <ul>
+      <% @divisions.each() do |division| %>
+        <li><%= division.name %> <a href="/divisions/<%= division.id() %>/edit">Update this division</a></li>
+      <% end %>
+    </ul>
+<% else %>
+  <h3>There are no divisions yet!</h3>
+
+<% end %>
 
 <h3>Add division:</h3>
 

@@ -1,12 +1,18 @@
 <h1>EMPLOYEES</h1>
 
-<h3>Here are all of your employees:</h3>
+<% if @employees.any?() %>
+  <h3>Here are all of your employees:</h3>
 
-<ul>
-  <% @employees.each() do |employee| %>
-  <li><%= employee.name %> <a href="/employees/<%= employee.id() %>/edit">Update this employee</a></li>
-  <% end %>
-</ul>
+  <ul>
+    <% @employees.each() do |employee| %>
+      <li><%= employee.name %> <a href="/employees/<%= employee.id() %>/edit">Update this employee</a></li>
+    <% end %>
+  </ul>
+
+<% else %>
+  <h3>There are no employees yet!</h3>
+
+<% end %>
 
 <h3>Add employee:</h3>
 
@@ -21,8 +27,16 @@
     <label for="age">Age:</label>
     <input class="form-control" type="text" name="age" id="age">
     <br>
+  
+    <select id="division_id" name="division_id" type="text">
+      <% @divisions.each() do |division| %>
+        <option value="<%= division.id %>"><%= division.name() %></option>
+      <% end %>
+    </select>
+
     <button type="submit" class="btn btn-primary">Add employee</button>
   </div>
 </form>
+
 
 <h6><a href="/">Back Home</a></h6>
