@@ -36,6 +36,13 @@ patch("/divisions/:id") do
   erb(:divisions)
 end
 
+delete("/divisions/:id") do
+  @division = Division.find(params.fetch("id").to_i())
+  @division.delete()
+  @divisions = Division.all()
+  erb(:divisions)
+end
+
 get("/employees") do
   @employees = Employee.all()
   erb(:employees)
@@ -62,6 +69,13 @@ patch("/employees/:id") do
   age = params.fetch("age").to_i()
   @employee = Employee.find(params.fetch("id").to_i())
   @employee.update({:name => name, :gender => gender, :age => age})
+  @employees = Employee.all()
+  erb(:employees)
+end
+
+delete("/employees/:id") do
+  @employee = Employee.find(params.fetch("id").to_i())
+  @employee.delete()
   @employees = Employee.all()
   erb(:employees)
 end
